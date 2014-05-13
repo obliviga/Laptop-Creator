@@ -1,0 +1,4 @@
+h1 All Laptops
+ ul
+  each laptop in laptops
+   li: a(href="/laptops/#{laptop.screenSize}") #{laptop.hardDrive} (#{laptop.ram})

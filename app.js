@@ -14,50 +14,50 @@ app.configure(function() {
 	app.use(express.static(__dirname + "/public"));
 });
 
-mongoose.connect("mongodb://localhost/helloExpress");
+mongoose.connect("mongodb://localhost/laptopDB");
 
-var UserSchema = new mongoose.Schema({
-	name: String,
-	email: String,
-	age: Number
+var LaptopSchema = new mongoose.Schema({
+	screenSize: String,
+	hardDrive: String,
+	ram: String
 }),
 
-	Users = mongoose.model('Users', UserSchema);
+	Laptops = mongoose.model('Laptops', LaptopSchema);
 // INDEX	
-app.get("/users", function (req, res) {
-	Users.find({}, function (err, docs) {
-		res.render('users/index', { users: docs });
+app.get("/laptops", function (req, res) {
+	Laptops.find({}, function (err, docs) {
+		res.render('laptops/index', { laptops: docs });
 	});
 });
 
 //NEW
-app.get('/users/new', function (req, res) {
-	res.render("users/new");
+app.get('/laptops/new', function (req, res) {
+	res.render("laptops/new");
 });
 
 //CREATE
-app.post('/users', function (req, res) {
+app.post('/laptops', function (req, res) {
 	var b = req.body;
-	new Users({
-		name: b.name,
-		email: b.email,
-		age: b.age
-	}).save(function (err, user) {
+	new Laptops({
+		screenSize: b.screenSize,
+		hardDrive: b.hardDrive,
+		ram: b.ram
+	}).save(function (err, laptop) {
 		if (err) res.json(err);
-		res.redirect('/users/' + user.name);
+		res.redirect('/laptops/' + laptop.screenSize);
 	});
 });
 
-app.param('name', function (req, res, next, name) {
-	Users.find({ name: name }, function (err, docs) {
-		req.user = docs[0];
+app.param('screenSize', function (req, res, next, screenSize) {
+	Laptops.find({ screenSize: screenSize }, function (err, docs) {
+		req.laptop = docs[0];
 		next();
 	});
 });
 
 // SHOW
-app.get('/users/:name', function (req, res) {
-	res.render("users/show", { user: req.user });
+app.get('/laptops/:screenSize', function (req, res) {
+	res.render("laptops/show", { laptop: req.laptop });
 });
 
 http.createServer(app).listen(app.get('port'), function(){

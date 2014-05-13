@@ -1,0 +1,12 @@
+h1 New Laptop
+ form(method="POST", action="/laptops/")
+  p Screen Size:
+   input#screenSize(type="radio", name="screenSize", value="11 Inches (Included)")
+   input#screenSize(type="radio", name="screenSize", value="15 Inches ($200)")
+  p Hard Drive Space:
+   input#hardDrive(type="radio", name="hardDrive", value="128GB (Included)")
+   input#hardDrive(type="radio", name="hardDrive", value="256GB ($200)")
+  p Memory (RAM):
+   input#ram(type="radio", name="ram", value="8GB (Included)")
+   input#ram(type="radio", name="ram", value="16GB ($200)")
+  p: button(type="submit") Add to order
