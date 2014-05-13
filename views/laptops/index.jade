@@ -1,5 +1,32 @@
-h1 All Laptops
- p Screen Size, Hard Drive Space, Memory, Laptop ID
- ul
-  each laptop in laptops
-   li: a(href="/laptops/#{laptop._id}") #{laptop.screenSize}, #{laptop.hardDrive}, #{laptop.ram} (#{laptop._id})
+doctype html
+html(lang="en")
+	head
+	title= "Laptop Creator"
+	style
+		.even {
+		background: #FFF;
+		}
+		.odd {
+		background: #CCC;
+		}
+	body
+	h1 All Laptops
+	table(border='1', style='width: 300px;')
+		tr
+			td Screen Size
+			td Hard Drive Space
+			td Memory (RAM)
+			td Laptop ID
+		each laptop, i in laptops
+			tr(class=(i % 2 == 0) ? 'odd' : 'even')
+				td #{laptop.screenSize}
+				td #{laptop.hardDrive}
+				td #{laptop.ram}
+				td 
+					a(href="/laptops/#{laptop._id}") #{laptop._id}
+			//
+				p Screen Size, Hard Drive Space, Memory, Laptop ID
+					ul
+						each laptop in laptops
+							li: a(href="/laptops/#{laptop._id}") #{laptop.screenSize}, #{laptop.hardDrive}, #{laptop.ram} (#{laptop._id})
+			

@@ -49,15 +49,15 @@ app.post('/laptops', function (req, res) {
 	});
 });
 
-app.param('screenSize', function (req, res, next, screenSize) {
-	Laptops.find({ screenSize: screenSize }, function (err, docs) {
+app.param('_id', function (req, res, next, _id) {
+	Laptops.find({ _id: _id }, function (err, docs) {
 		req.laptop = docs[0];
 		next();
 	});
 });
 
 // SHOW
-app.get('/laptops/:screenSize', function (req, res) {
+app.get('/laptops/:_id', function (req, res) {
 	res.render("laptops/show", { laptop: req.laptop });
 });
 
