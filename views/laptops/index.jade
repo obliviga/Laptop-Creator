@@ -10,6 +10,7 @@ html(lang="en")
 		background: #CCC;
 		}
 	body
+	a(href="new/") Buy a laptop!
 	h1 All Laptops
 	table(border='1', style='width: 300px;')
 		tr
@@ -17,6 +18,7 @@ html(lang="en")
 			td Hard Drive Space
 			td Memory (RAM)
 			td Laptop ID
+			td Price
 		each laptop, i in laptops
 			tr(class=(i % 2 == 0) ? 'odd' : 'even')
 				td #{laptop.screenSize}
@@ -24,6 +26,8 @@ html(lang="en")
 				td #{laptop.ram}
 				td 
 					a(href="/laptops/#{laptop._id}") #{laptop._id}
+				td #{laptop.price}
+				
 			//
 				p Screen Size, Hard Drive Space, Memory, Laptop ID
 					ul
