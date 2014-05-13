@@ -41,7 +41,8 @@ app.post('/laptops', function (req, res) {
 	new Laptops({
 		screenSize: b.screenSize,
 		hardDrive: b.hardDrive,
-		ram: b.ram
+		ram: b.ram,
+		_id: b._id
 	}).save(function (err, laptop) {
 		if (err) res.json(err);
 		res.redirect('/laptops/' + laptop.screenSize);
