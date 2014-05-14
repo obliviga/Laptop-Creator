@@ -1,8 +1,6 @@
 extends layout
 block content
-  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-  script(src='/js/test.js')
-  form(method='POST', action='/laptops/')
+ form(method='POST', action='/laptops/')
     .item
       h3 Screen Size
       input(type='radio', name='screenSize', data-price='0', value='11 inches', checked='checked')
@@ -26,8 +24,8 @@ block content
       | Price: $
       span.subtotal
     button.btn.btn-primary(type='submit') Add to order
-  #qunit
-   #qunit-fixture
+ #qunit
+ #qunit-fixture
   script
     $(document).ready(function() {
     $('.item input').each(function(i, el) {

@@ -38,12 +38,12 @@ app.get('/laptops/newLaptop', function (req, res) {
 
 // Creating a new laptop
 app.post('/laptops', function (req, res) {
-	var b = req.body;
+	var x = req.body;
 	new Laptops({
-		screenSize: b.screenSize,
-		hardDrive: b.hardDrive,
-		ram: b.ram,
-		price: b.price
+		screenSize: x.screenSize,
+		hardDrive: x.hardDrive,
+		ram: x.ram,
+		price: x.price
 		// _id: b._id
 	}).save(function (err, laptop) {
 		if (err) res.json(err);
