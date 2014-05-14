@@ -1,32 +1,30 @@
-html
-  head
-    title Laptop Builder
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-  body
-    form(method='POST', action='/laptops/')
-      .item
-        h3 Screen Size
-        input(type='radio', name='screenSize', data-price='0', value='11 inches', checked='checked')
-        | 11 Inches (Included)
-        input(type='radio', name='screenSize', data-price='200', value='15 inches')
-        | 15 Inches ($200)
-      .item
-        h3 Hard Drive Size
-        input(type='radio', name='hardDrive', data-price='0', value='128GB', checked='checked')
-        | 128GB (Included)
-        input(type='radio', name='hardDrive', data-price='200', value='256GB')
-        | 256GB ($200)
-      .item
-        h3 Memory (RAM)
-        input(type='radio', name='ram', data-price='0', value='8GB', checked='checked')
-        | 8GB (Included)
-        input(type='radio', name='ram', data-price='200', value='16GB')
-        | 16GB ($200)
-        input#cost(type='hidden', name='price', value='')
-      h3
-        | Price: $
-        span.subtotal
-      button(type='submit') Add to order
+extends layout
+block content
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+  form(method='POST', action='/laptops/')
+    .item
+      h3 Screen Size
+      input(type='radio', name='screenSize', data-price='0', value='11 inches', checked='checked')
+      | 11 Inches (Included)
+      input(type='radio', name='screenSize', data-price='200', value='15 inches')
+      | 15 Inches ($200)
+    .item
+      h3 Hard Drive Size
+      input(type='radio', name='hardDrive', data-price='0', value='128GB', checked='checked')
+      | 128GB (Included)
+      input(type='radio', name='hardDrive', data-price='200', value='256GB')
+      | 256GB ($200)
+    .item
+      h3 Memory (RAM)
+      input(type='radio', name='ram', data-price='0', value='8GB', checked='checked')
+      | 8GB (Included)
+      input(type='radio', name='ram', data-price='200', value='16GB')
+      | 16GB ($200)
+      input#cost(type='hidden', name='price', value='')
+    h3
+      | Price: $
+      span.subtotal
+    button.btn.btn-primary(type='submit') Add to order
   script
     $(document).ready(function() {
     $('.item input').each(function(i, el) {

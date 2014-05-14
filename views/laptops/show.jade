@@ -1,9 +1,9 @@
-a(href="/laptops") Back 
-br
-a(href="/laptops/new/") Order a laptop!
-h1 Your New Laptop
-ul
- li Screen Size: #{laptop.screenSize}
- li Hard Drive Space: #{laptop.hardDrive}
- li Memory: #{laptop.ram}
- li Price: #{laptop.price}
+extends layout
+block content
+	a(href="/laptops/new/") Order a laptop!
+	h3 Laptop # #{laptop._id}
+	ul
+	li Screen Size: #{laptop.screenSize}
+	li Hard Drive Space: #{laptop.hardDrive}
+	li Memory: #{laptop.ram}
+	li Price: #{laptop.price}
