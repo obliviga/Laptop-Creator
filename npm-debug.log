@@ -1,22 +1,56 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'update' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '-g', 'mocha' ]
 2 info using npm@1.4.3
 3 info using node@v0.10.26
 4 verbose node symlink /usr/bin/node
-5 info outdated updating undefined
-6 error Failed to parse json
-6 error Unexpected string
-7 error File: /home/anish/alcohol/package.json
-8 error Failed to parse package.json data.
-8 error package.json must be actual JSON, not just JavaScript.
-8 error
-8 error This is not a bug in npm.
-8 error Tell the package author to fix their package.json file. JSON.parse
-9 error System Linux 3.8.0-38-generic
-10 error command "/usr/bin/node" "/usr/bin/npm" "update"
-11 error cwd /home/anish/alcohol
-12 error node -v v0.10.26
-13 error npm -v 1.4.3
-14 error file /home/anish/alcohol/package.json
-15 error code EJSONPARSE
-16 verbose exit [ 1, true ]
+5 verbose cache add [ 'mocha', null ]
+6 verbose cache add name=undefined spec="mocha" args=["mocha",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'mocha',
+7 verbose parsed url   path: 'mocha',
+7 verbose parsed url   href: 'mocha' }
+8 silly lockFile a619da43-mocha mocha
+9 verbose lock mocha /home/anish/.npm/a619da43-mocha.lock
+10 silly lockFile a619da43-mocha mocha
+11 silly lockFile a619da43-mocha mocha
+12 verbose addNamed [ 'mocha', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile b9899f31-mocha mocha@
+15 verbose lock mocha@ /home/anish/.npm/b9899f31-mocha.lock
+16 silly addNameRange { name: 'mocha', range: '*', hasData: false }
+17 verbose url raw mocha
+18 verbose url resolving [ 'https://registry.npmjs.org/', './mocha' ]
+19 verbose url resolved https://registry.npmjs.org/mocha
+20 info trying registry request attempt 1 at 12:22:38
+21 http GET https://registry.npmjs.org/mocha
+22 info retry will retry, error on last attempt: Error: getaddrinfo EADDRINFO
+23 info trying registry request attempt 2 at 12:23:28
+24 http GET https://registry.npmjs.org/mocha
+25 info retry will retry, error on last attempt: Error: getaddrinfo EADDRINFO
+26 info trying registry request attempt 3 at 12:25:08
+27 http GET https://registry.npmjs.org/mocha
+28 silly lockFile b9899f31-mocha mocha@
+29 silly lockFile b9899f31-mocha mocha@
+30 error Error: getaddrinfo EADDRINFO
+30 error     at errnoException (dns.js:37:11)
+30 error     at Object.onanswer [as oncomplete] (dns.js:124:16)
+31 error If you need help, you may report this *entire* log,
+31 error including the npm and node versions, at:
+31 error     <http://github.com/npm/npm/issues>
+32 error System Linux 3.8.0-38-generic
+33 error command "/usr/bin/node" "/usr/bin/npm" "install" "-g" "mocha"
+34 error cwd /home/anish/final
+35 error node -v v0.10.26
+36 error npm -v 1.4.3
+37 error syscall getaddrinfo
+38 error code EADDRINFO
+39 error errno EADDRINFO
+40 verbose exit [ 1, true ]
