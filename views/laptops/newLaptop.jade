@@ -1,0 +1,65 @@
+html
+  head
+    title Laptop Builder
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+  body
+    form(method='POST', action='/laptops/')
+      .item
+        h3 Screen Size
+        input(type='radio', name='screenSize', data-price='0', value='11 inches', checked='checked')
+        | 11 Inches (Included)
+        input(type='radio', name='screenSize', data-price='200', value='15 inches')
+        | 15 Inches ($200)
+      .item
+        h3 Hard Drive Size
+        input(type='radio', name='hardDrive', data-price='0', value='128GB', checked='checked')
+        | 128GB (Included)
+        input(type='radio', name='hardDrive', data-price='200', value='256GB')
+        | 256GB ($200)
+      .item
+        h3 Memory (RAM)
+        input(type='radio', name='ram', data-price='0', value='8GB', checked='checked')
+        | 8GB (Included)
+        input(type='radio', name='ram', data-price='200', value='16GB')
+        | 16GB ($200)
+        input#cost(type='hidden', name='price', value='')
+      h3
+        | Price: $
+        span.subtotal
+      button(type='submit') Add to order
+  script
+    $(document).ready(function() {
+    $('.item input').each(function(i, el) {
+    $(this).append(' <span class="diffaddsubtr"></span> <span class="diffamount"></span>');
+    });
+    updateSubtotal();
+    updateDifferences();
+    });
+    $('.item').on('change', function(e) {
+    updateSubtotal();
+    updateDifferences();
+    });
+    function updateSubtotal() {
+    var subtotal = 1000;
+    $('.item').each(function(i, el) {
+    subtotal += parseFloat($(this).find('input:checked').data('price'));
+    });
+    $('.subtotal').text(subtotal);
+    document.getElementById('cost').value = subtotal;
+    return subtotal;
+    };
+    function updateDifferences() {
+    $('.item').each(function(i, sel) {
+    var $sel = $(sel);
+    $sel.find('input').each(function(j, opt) {
+    var $opt = $(opt),
+    optprice = $opt.data('price'),
+    selprice = $sel.find('input:checked').data('price'),
+    diff = optprice - selprice,
+    diffaddsubtr = (diff > 0) ? "- add" : (diff < 0) ? "- subtract" : "",
+    diffamount = Math.abs(diff) || "";
+    $opt.find('.diffaddsubtr').text(diffaddsubtr).end()
+    .find('.diffamount').text(diffamount);
+    });
+    });
+    };

@@ -24,19 +24,19 @@ var LaptopSchema = new mongoose.Schema({
 }),
 
 	Laptops = mongoose.model('Laptops', LaptopSchema);
-// INDEX	
+// Index	
 app.get("/laptops", function (req, res) {
 	Laptops.find({}, function (err, docs) {
 		res.render('laptops/index', { laptops: docs });
 	});
 });
 
-//NEW
-app.get('/laptops/new', function (req, res) {
-	res.render("laptops/new");
+// New Laptop Page
+app.get('/laptops/newLaptop', function (req, res) {
+	res.render("laptops/newLaptop");
 });
 
-//CREATE
+// Creating a new laptop
 app.post('/laptops', function (req, res) {
 	var b = req.body;
 	new Laptops({
@@ -58,7 +58,7 @@ app.param('_id', function (req, res, next, _id) {
 	});
 });
 
-// SHOW
+// Display the selected laptop via ID
 app.get('/laptops/:_id', function (req, res) {
 	res.render("laptops/show", { laptop: req.laptop });
 });
