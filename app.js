@@ -19,7 +19,8 @@ mongoose.connect("mongodb://localhost/laptopDB");
 var LaptopSchema = new mongoose.Schema({
 	screenSize: String,
 	hardDrive: String,
-	ram: String
+	ram: String,
+	price: Number
 }),
 
 	Laptops = mongoose.model('Laptops', LaptopSchema);
@@ -41,7 +42,8 @@ app.post('/laptops', function (req, res) {
 	new Laptops({
 		screenSize: b.screenSize,
 		hardDrive: b.hardDrive,
-		ram: b.ram
+		ram: b.ram,
+		price: b.price
 		// _id: b._id
 	}).save(function (err, laptop) {
 		if (err) res.json(err);

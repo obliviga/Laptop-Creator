@@ -10,7 +10,7 @@ html(lang="en")
 		background: #CCC;
 		}
 	body
-	a(href="/laptops/new/") Buy a laptop!
+	a(href="/laptops/new/") Order a laptop!
 	h1 All Laptops
 	table(border='1', style='width: 300px;')
 		tr
@@ -24,7 +24,7 @@ html(lang="en")
 				td #{laptop.screenSize}
 				td #{laptop.hardDrive}
 				td #{laptop.ram}
-				td 
+				td
 					a(href="/laptops/#{laptop._id}") #{laptop._id}
 				td #{laptop.price}
 				

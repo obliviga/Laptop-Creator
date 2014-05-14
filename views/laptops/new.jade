@@ -22,6 +22,7 @@ html
         | 8GB (Included)
         input(type='radio', name='ram', data-price='200', value='16GB')
         | 16GB ($200)
+        input#cost(type='hidden', name='price', value='')
       h3
         | Price: $
         span.subtotal
@@ -44,6 +45,8 @@ html
     subtotal += parseFloat($(this).find('input:checked').data('price'));
     });
     $('.subtotal').text(subtotal);
+    document.getElementById('cost').value = subtotal;
+    return subtotal;
     };
     function updateDifferences() {
     $('.item').each(function(i, sel) {
