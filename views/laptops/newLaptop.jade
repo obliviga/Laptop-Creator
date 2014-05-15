@@ -1,19 +1,19 @@
 extends layout
 block content
  form(method='POST', action='/laptops/')
-    .item
+    .item.well
       h3 Screen Size
       input(type='radio', name='screenSize', data-price='0', value='11 inches', checked='checked')
       | 11 Inches (Included)
       input(type='radio', name='screenSize', data-price='200', value='15 inches')
       | 15 Inches ($200)
-    .item
+    .item.well
       h3 Hard Drive Size
       input(type='radio', name='hardDrive', data-price='0', value='128GB', checked='checked')
       | 128GB (Included)
       input(type='radio', name='hardDrive', data-price='200', value='256GB')
       | 256GB ($200)
-    .item
+    .item.well
       h3 Memory (RAM)
       input(type='radio', name='ram', data-price='0', value='8GB', checked='checked')
       | 8GB (Included)
