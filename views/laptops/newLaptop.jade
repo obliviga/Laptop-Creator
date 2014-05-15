@@ -27,6 +27,11 @@ block content
  #qunit
  #qunit-fixture
   script
+   // Implemented a Facade Pattern here by using jQuery. An example is on line 48.
+    // Instead of writing "document.getElementById('cost').value = subtotal;",
+     // All that is Facaded by "$('#cost').val(subtotal);".
+      // I chose this pattern because I prefer to write less code.
+       // It's just less syntax I have to remember.
     $(document).ready(function() {
     $('.item input').each(function(i, el) {
     $(this).append(' <span class="diffaddsubtr"></span> <span class="diffamount"></span>');
@@ -44,7 +49,7 @@ block content
     subtotal += parseFloat($(this).find('input:checked').data('price'));
     });
     $('.subtotal').text(subtotal);
-    document.getElementById('cost').value = subtotal;
+    $('#cost').val(subtotal);
     return subtotal;
     };
     function updateDifferences() {
