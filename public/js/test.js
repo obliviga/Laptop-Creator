@@ -21,7 +21,7 @@ function updateSubtotal() {
 };
 
 test( "Checking if the subtotal is greater or equal to 1000", function() {
-	ok( subtotal => 1000, "Passed!" );
+	ok( subtotal => 1000, "Passed!" ); 
 });
 
 function updateDifferences() {
